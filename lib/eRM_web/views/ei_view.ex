@@ -15,6 +15,11 @@ defmodule ERMWeb.EIView do
     else
       {nil, nil}
     end
-    %{id: ei.id, ei: ei.description, lat: lat, long: long}
+    %{id: ei.id, description: ei.description, lat: lat, long: long}
+  end
+
+  def render("info.json", %{ei_id: ei_id}) do
+    ei = ERM.Cooperation.get_e2!(ei_id)
+    %{data: render_one(ei, ERMWeb.EIView, "ei.json")}
   end
 end

@@ -31,15 +31,28 @@ if (mapContainer) {
         .receive("error", resp => { console.log("Unable to join", resp) })
 
     channel.on("eis:list", payload => {
-        console.log("signature_ok")
-        console.log(data)
+        console.log("eis:list:payload")
+        console.log(payload)
+        payload.data.map(ei => {
+                if (ei.lat != null || ei.long != null){
+                    const lat = parseFloat(ei.lat)
+                    const long = parseFloat(ei.long)
+                    const marker = L.marker([lat, long], {ei_id: ei.id}).addTo(map)
+                    marker.bindPopup("<b>"+ ei.description+"</b>. " + ei.type ).on('click', markerOnClick)
+                }
+            }) 
+    })
 
-        //var marker = L.marker([51.5, -0.09]).addTo(map)
-        //let list = document.querySelector("#messages-list")
-        //list.append("signature:ok::")
-        //list.append(JSON.stringify(payload))
-        //list.prop({scrollTop: list.prop("scrollHeight")})
-    });
+    function markerOnClick(e)
+    {
+        console.log(e.target.options.ei_id)
+        channel.push("ei:selected", {ei_id: e.target.options.ei_id})
+    }
+
+    channel.on("ei:selected", payload => {
+        console.log("ei:selected")
+        console.log(payload)
+    })
 }
 
 

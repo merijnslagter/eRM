@@ -19,4 +19,13 @@ defmodule ERMWeb.MapChannel do
     IO.inspect return
     {:noreply, socket}
   end
+
+  def handle_in("ei:selected", %{"ei_id" => ei_id}, socket) do
+    #broadcast! socket, "new_msg", %{body: body}
+    IO.puts "EID selected on map: #{inspect(ei_id)}"
+    # get ei data and render
+    return = ERMWeb.EIView.render("info.json", %{ei_id: ei_id})
+    push socket, "ei:selected", return
+    {:noreply, socket}
+  end
 end
