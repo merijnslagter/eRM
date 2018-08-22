@@ -1,0 +1,43 @@
+<h2>Show Cooperator</h2>
+
+<ul>
+
+  <li>
+    <strong>Pub key:</strong>
+    <%= @cooperator.pub_key %>
+  </li>
+
+  <li>
+    <strong>Priv key:</strong>
+    <%= @cooperator.priv_key %>
+  </li>
+
+  <li>
+    <strong>Hash:</strong>
+    <%= @cooperator.hash %>
+  </li>
+
+  <li>
+    <strong>Name1:</strong>
+    <%= @cooperator.name1 %>
+  </li>
+
+  <li>
+    <strong>Name2:</strong>
+    <%= @cooperator.name2 %>
+  </li>
+
+  <li>
+    <strong>Eid:</strong>
+    <%= @cooperator.eid %>
+  </li>
+
+  <li>
+     <strong>Email:</strong>
+      <%= @cooperator.credential.email %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: cooperator_path(@conn, :edit, @cooperator) %></span>
+<span><%= link "Back", to: cooperator_path(@conn, :index) %></span>

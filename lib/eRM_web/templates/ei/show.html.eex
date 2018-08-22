@@ -1,0 +1,43 @@
+<h2>Show E2</h2>
+
+<ul>
+
+  <li>
+    <strong>Type:</strong>
+    <%= @e2.type %>
+  </li>
+
+  <li>
+    <strong>Creator:</strong>
+    <%= @e2.creator %>
+  </li>
+
+  <li>
+    <strong>Date:</strong>
+    <%= @e2.date %>
+  </li>
+
+  <li>
+    <strong>Hash:</strong>
+    <%= @e2.hash %>
+  </li>
+
+  <li>
+    <strong>Signature:</strong>
+    <%= @e2.signature %>
+  </li>
+
+  <li>
+    <strong>Eid:</strong>
+    <%= @e2.eid %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @e2.description %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: ei_path(@conn, :edit, @e2) %></span>
+<span><%= link "Back", to: ei_path(@conn, :index) %></span>

@@ -1,0 +1,5 @@
+<h2>New Earth/EcoSystem/Environment Interaction</h2>
+
+<%= render "form.html", Map.put(assigns, :action, ei_path(@conn, :create)) %>
+
+<span><%= link "Back", to: ei_path(@conn, :index) %></span>

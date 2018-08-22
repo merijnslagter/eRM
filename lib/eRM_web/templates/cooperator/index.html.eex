@@ -1,0 +1,36 @@
+<h2>Listing Cooperators</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Pub key</th>
+      <th>Priv key</th>
+      <th>Hash</th>
+      <th>Name1</th>
+      <th>Name2</th>
+      <th>Eid</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for cooperator <- @cooperators do %>
+    <tr>
+      <td><%= cooperator.pub_key %></td>
+      <td><%= cooperator.priv_key %></td>
+      <td><%= cooperator.hash %></td>
+      <td><%= cooperator.name1 %></td>
+      <td><%= cooperator.name2 %></td>
+      <td><%= cooperator.eid %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: cooperator_path(@conn, :show, cooperator), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: cooperator_path(@conn, :edit, cooperator), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: cooperator_path(@conn, :delete, cooperator), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Cooperator", to: cooperator_path(@conn, :new) %></span>
