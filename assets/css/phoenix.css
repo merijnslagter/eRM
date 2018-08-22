@@ -22,13 +22,14 @@ body, form, ul, table {
   border-bottom: 1px solid #e5e5e5;
 }
 .logo {
-  width: 71px;
+  width: 300px;
   height: 71px;
   display: inline-block;
   margin-bottom: 1em;
-  background-image: url("/images/wijlandlogo.png");
-  background-size: 71px 71px;
+  background-image: url("/images/logowijland.png");
+  background-size: 300px 71px;
 }
+
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
