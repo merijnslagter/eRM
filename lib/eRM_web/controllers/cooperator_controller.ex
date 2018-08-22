@@ -21,7 +21,7 @@ defmodule ERMWeb.CooperatorController do
         IO.puts "ok cooperator created"
         conn
         |> put_flash(:info, "Cooperator created successfully.")
-        |> redirect(to: cooperator_path(conn, :show, cooperator))
+        |> redirect(to: erm_cooperator_path(conn, :show, cooperator))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -47,7 +47,7 @@ defmodule ERMWeb.CooperatorController do
       {:ok, cooperator} ->
         conn
         |> put_flash(:info, "Cooperator updated successfully.")
-        |> redirect(to: cooperator_path(conn, :show, cooperator))
+        |> redirect(to: erm_cooperator_path(conn, :show, cooperator))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", cooperator: cooperator, changeset: changeset)
     end
@@ -59,6 +59,6 @@ defmodule ERMWeb.CooperatorController do
 
     conn
     |> put_flash(:info, "Cooperator deleted successfully.")
-    |> redirect(to: cooperator_path(conn, :index))
+    |> redirect(to: erm_cooperator_path(conn, :index))
   end
 end

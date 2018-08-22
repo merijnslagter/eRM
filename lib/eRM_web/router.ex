@@ -16,18 +16,14 @@ defmodule ERMWeb.Router do
 
   scope "/", ERMWeb do
     pipe_through :browser # Use the default browser stack
-    resources "/sessions", SessionController, only: [:new,    :create, :delete], singleton: true
-
-    get "/", PageController, :index
-    resources "/eis", EIController
-    resources "/cooperators", CooperatorController
+    resources "/session", SessionController, only: [:new,    :create, :delete], singleton: true
 
   end
 
   scope "/erm", ERMWeb, as: :erm do
     pipe_through [:browser, :authenticate_user]
 
-    get "/", PageController, :index
+    get "/home", PageController, :index
     resources "/eis", EIController
     resources "/cooperators", CooperatorController
   end
@@ -42,7 +38,7 @@ defmodule ERMWeb.Router do
       nil ->
         conn
         |> Phoenix.Controller.put_flash(:error, "Login required")
-        |> Phoenix.Controller.redirect(to: "/")
+        |> Phoenix.Controller.redirect(to: "/session/new")
         |> halt()
       cooperator_id ->
         assign(conn, :current_cooperator, ERM.Cooperators.get_cooperator!(cooperator_id))

@@ -39,5 +39,5 @@
 
 </ul>
 
-<span><%= link "Edit", to: ei_path(@conn, :edit, @e2) %></span>
-<span><%= link "Back", to: ei_path(@conn, :index) %></span>
+<span><%= link "Edit", to: erm_ei_path(@conn, :edit, @e2) %></span>
+<span><%= link "Back", to: erm_ei_path(@conn, :index) %></span>

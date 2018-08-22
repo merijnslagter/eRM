@@ -36,12 +36,7 @@
      <strong>Email:</strong>
       <%= @cooperator.credential.email %>
   </li>
-
-   <li>
-     <strong>Geom:</strong>
-      <%= @cooperator.geom %>
-  </li>
 </ul>
 
-<span><%= link "Edit", to: cooperator_path(@conn, :edit, @cooperator) %></span>
-<span><%= link "Back", to: cooperator_path(@conn, :index) %></span>
+<span><%= link "Edit", to: erm_cooperator_path(@conn, :edit, @cooperator) %></span>
+<span><%= link "Back", to: erm_cooperator_path(@conn, :index) %></span>

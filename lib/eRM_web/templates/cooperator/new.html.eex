@@ -1,5 +1,5 @@
 <h2>New Cooperator</h2>
 
-<%= render "form.html", Map.put(assigns, :action, cooperator_path(@conn, :create)) %>
+<%= render "form.html", Map.put(assigns, :action, erm_cooperator_path(@conn, :create)) %>
 
-<span><%= link "Back", to: cooperator_path(@conn, :index) %></span>
+<span><%= link "Back", to: erm_cooperator_path(@conn, :index) %></span>

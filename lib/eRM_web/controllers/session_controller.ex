@@ -14,7 +14,7 @@ defmodule ERMWeb.SessionController do
         |> put_flash(:info, "Welcome back!")
         |> put_session(:cooperator_id, cooperator.id)
         |> configure_session(renew: true)
-        |> redirect(to: "/")
+        |> redirect(to: "/erm/home")
       {:error, :unauthorized} ->
         conn
         |> put_flash(:error, "Bad email/password combination")
@@ -25,6 +25,6 @@ defmodule ERMWeb.SessionController do
   def delete(conn, _) do
     conn
     |> configure_session(drop: true)
-    |> redirect(to: "/")
+    |> redirect(to: session_path(conn, :new))
   end
 end

@@ -1,5 +1,5 @@
 <h2>Edit EI</h2>
 
-<%= render "form.html", Map.put(assigns, :action, ei_path(@conn, :update, @e2)) %>
+<%= render "form.html", Map.put(assigns, :action, erm_ei_path(@conn, :update, @e2)) %>
 
-<span><%= link "Back", to: ei_path(@conn, :index) %></span>
+<span><%= link "Back", to: erm_ei_path(@conn, :index) %></span>

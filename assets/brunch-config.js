@@ -19,8 +19,20 @@ exports.config = {
       //   ]
       // }
     },
+    /* 
+         joinTo: {
+        'css/app.css': 'css/app.scss',
+        'css/bulma.css': 'css/bulma-customize.scss',
+        'css/lost.css': 'css/lost.scss'
+      }
+    */
     stylesheets: {
-      joinTo: "css/app.css"
+      joinTo: {
+        'css/app.css': 'css/app.scss',
+        'css/bulma.css': 'css/bulma-customize.scss',
+        'css/lost.css': 'css/lost.scss'
+      }
+      
     },
     templates: {
       joinTo: "js/app.js"

@@ -20,13 +20,13 @@
       <td><%= cooperator.eid %></td>
 
       <td class="text-right">
-        <span><%= link "Show", to: cooperator_path(@conn, :show, cooperator), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Edit", to: cooperator_path(@conn, :edit, cooperator), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Delete", to: cooperator_path(@conn, :delete, cooperator), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+        <span><%= link "Show", to: erm_cooperator_path(@conn, :show, cooperator), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: erm_cooperator_path(@conn, :edit, cooperator), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: erm_cooperator_path(@conn, :delete, cooperator), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span><%= link "New Cooperator", to: cooperator_path(@conn, :new) %></span>
+<span><%= link "New Cooperator", to: erm_cooperator_path(@conn, :new) %></span>

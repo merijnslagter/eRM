@@ -20,7 +20,7 @@ defmodule ERMWeb.EIController do
       {:ok, ei} ->
         conn
         |> put_flash(:info, "EI created successfully.")
-        |> redirect(to: ei_path(conn, :show, ei))
+        |> redirect(to: erm_ei_path(conn, :show, ei))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -46,7 +46,7 @@ defmodule ERMWeb.EIController do
       {:ok, e2} ->
         conn
         |> put_flash(:info, "E2 updated successfully.")
-        |> redirect(to: ei_path(conn, :show, e2))
+        |> redirect(to: erm_ei_path(conn, :show, e2))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", e2: e2, changeset: changeset)
     end
@@ -58,6 +58,6 @@ defmodule ERMWeb.EIController do
 
     conn
     |> put_flash(:info, "E2 deleted successfully.")
-    |> redirect(to: ei_path(conn, :index))
+    |> redirect(to: erm_ei_path(conn, :index))
   end
 end

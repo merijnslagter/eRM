@@ -1,0 +1,3 @@
+<div style=”background-color: blue; color: white;”>
+  <h1><%= @ei.ei_id %></h1>
+</div>
