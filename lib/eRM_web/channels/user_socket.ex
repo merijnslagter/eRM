@@ -2,7 +2,7 @@ defmodule ERMWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", ERMWeb.RoomChannel
+  channel "map:*", ERMWeb.MapChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket

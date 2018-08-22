@@ -19,7 +19,7 @@
                         'Elixir.ERMWeb.EIController','Elixir.ERMWeb.EIView',
                         'Elixir.ERMWeb.Endpoint','Elixir.ERMWeb.ErrorHelpers',
                         'Elixir.ERMWeb.ErrorView','Elixir.ERMWeb.Gettext',
-                        'Elixir.ERMWeb.LayoutView',
+                        'Elixir.ERMWeb.LayoutView','Elixir.ERMWeb.MapChannel',
                         'Elixir.ERMWeb.PageController',
                         'Elixir.ERMWeb.PageView','Elixir.ERMWeb.Router',
                         'Elixir.ERMWeb.Router.Helpers',

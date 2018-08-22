@@ -1,5 +1,16 @@
-<div class="jumbotron">
-  <div id="mapid"></div>
+<div class="row marketing">
+  <div class="col-lg-6">
+    <h4>Map</h4>
+    <div class="jumbotron">
+       <div id="mapid"></div>
+    </div>
+  </div>
+    <div class="col-lg-6">
+    <h4>Context</h4>
+    <div class="jumbotron">
+       <h2>Context </h2>
+    </div>
+  </div>
 </div>
 
 <div class="row marketing">

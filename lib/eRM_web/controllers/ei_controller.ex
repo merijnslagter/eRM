@@ -14,19 +14,22 @@ defmodule ERMWeb.EIController do
     render(conn, "new.html", changeset: changeset)
   end
 
-  def create(conn, %{"ei" => e2_params}) do
-    case Cooperation.create_e2(e2_params) do
-      {:ok, e2} ->
+  def create(conn, %{"ei" => ei_params}) do
+    IO.inspect ei_params
+    case Cooperation.create_e2(ei_params) do
+      {:ok, ei} ->
         conn
-        |> put_flash(:info, "E2 created successfully.")
-        |> redirect(to: ei_path(conn, :show, e2))
+        |> put_flash(:info, "EI created successfully.")
+        |> redirect(to: ei_path(conn, :show, ei))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
   end
 
   def show(conn, %{"id" => id}) do
+    IO.puts "show EIs"
     e2 = Cooperation.get_e2!(id)
+    IO.inspect e2
     render(conn, "show.html", e2: e2)
   end
 

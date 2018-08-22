@@ -7,6 +7,7 @@ defmodule ERMWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :put_user_token
   end
 
   pipeline :api do
@@ -15,11 +16,20 @@ defmodule ERMWeb.Router do
 
   scope "/", ERMWeb do
     pipe_through :browser # Use the default browser stack
+    resources "/sessions", SessionController, only: [:new,    :create, :delete], singleton: true
 
     get "/", PageController, :index
     resources "/eis", EIController
     resources "/cooperators", CooperatorController
-    resources "/sessions", SessionController, only: [:new,    :create, :delete], singleton: true
+
+  end
+
+  scope "/erm", ERMWeb, as: :erm do
+    pipe_through [:browser, :authenticate_user]
+
+    get "/", PageController, :index
+    resources "/eis", EIController
+    resources "/cooperators", CooperatorController
   end
 
   # Other scopes may use custom stacks.
@@ -36,6 +46,15 @@ defmodule ERMWeb.Router do
         |> halt()
       cooperator_id ->
         assign(conn, :current_cooperator, ERM.Cooperators.get_cooperator!(cooperator_id))
+    end
+  end
+
+  defp put_user_token(conn, _) do
+    if current_cooperator = conn.assigns[:current_cooperator] do
+      token = Phoenix.Token.sign(conn, "cooperator socket", current_cooperator.id)
+      assign(conn, :user_token, token)
+    else
+      conn
     end
   end
 end

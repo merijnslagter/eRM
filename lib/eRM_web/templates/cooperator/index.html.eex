@@ -3,8 +3,6 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Pub key</th>
-      <th>Priv key</th>
       <th>Hash</th>
       <th>Name1</th>
       <th>Name2</th>
@@ -16,8 +14,6 @@
   <tbody>
 <%= for cooperator <- @cooperators do %>
     <tr>
-      <td><%= cooperator.pub_key %></td>
-      <td><%= cooperator.priv_key %></td>
       <td><%= cooperator.hash %></td>
       <td><%= cooperator.name1 %></td>
       <td><%= cooperator.name2 %></td>

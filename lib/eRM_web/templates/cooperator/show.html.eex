@@ -37,6 +37,10 @@
       <%= @cooperator.credential.email %>
   </li>
 
+   <li>
+     <strong>Geom:</strong>
+      <%= @cooperator.geom %>
+  </li>
 </ul>
 
 <span><%= link "Edit", to: cooperator_path(@conn, :edit, @cooperator) %></span>

@@ -18,6 +18,7 @@ defmodule ERMWeb.CooperatorController do
     IO.inspect cooperator_params
     case Cooperators.create_cooperator(cooperator_params) do
       {:ok, cooperator} ->
+        IO.puts "ok cooperator created"
         conn
         |> put_flash(:info, "Cooperator created successfully.")
         |> redirect(to: cooperator_path(conn, :show, cooperator))
@@ -27,7 +28,9 @@ defmodule ERMWeb.CooperatorController do
   end
 
   def show(conn, %{"id" => id}) do
+    IO.puts "show cooperator id"
     cooperator = Cooperators.get_cooperator!(id)
+    IO.inspect cooperator
     render(conn, "show.html", cooperator: cooperator)
   end
 

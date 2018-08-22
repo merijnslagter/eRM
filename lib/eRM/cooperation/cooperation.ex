@@ -50,7 +50,13 @@ defmodule ERM.Cooperation do
 
   """
   def create_e2(attrs \\ %{}) do
-    %EI{}
+    IO.puts "create_e2"
+    IO.inspect attrs
+
+    # update attrs: geom
+    # create geom =
+    geo = %Geo.Point{coordinates: {attrs["lat"], attrs["long"]}, srid: 4326}
+    %EI{geom: geo}
     |> EI.changeset(attrs)
     |> Repo.insert()
   end
