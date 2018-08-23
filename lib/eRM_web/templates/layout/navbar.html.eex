@@ -1,6 +1,6 @@
 <nav class="navbar is-fixed-top is-primary">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
+    <a class="navbar-item" href="http://0.0.0.0:4000/erm/home">
     </span>
       <span class="navbar-header-text">eRM</span>
     </a>
