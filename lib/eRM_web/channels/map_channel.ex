@@ -27,7 +27,7 @@ defmodule ERMWeb.MapChannel do
     # get ei data and render
     #return = ERMWeb.EIView.render("info.json", %{ei_id: ei_id})
     ei = %{ei_id: ei_id}
-    html = Phoenix.View.render_to_string(ERMWeb.PageView, "e3interaction.html", ei: ei)
+    html = Phoenix.View.render_to_string(ERMWeb.MapView, "e3interaction.html", ei: ei)
     IO.inspect(html)
     push socket, "ei:selected", %{html: html}
     {:noreply, socket}

@@ -1,4 +1,4 @@
-defmodule ERMWeb.PageController do
+defmodule ERMWeb.MapController do
   use ERMWeb, :controller
 
   def index(conn, _params) do

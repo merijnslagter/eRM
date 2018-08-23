@@ -9,8 +9,10 @@ defmodule ERMWeb.EIController do
     render(conn, "index.html", e2s: e2s)
   end
 
-  def new(conn, _params) do
+  def new(conn, params) do
+    IO.inspect(params)
     changeset = Cooperation.change_e2(%EI{})
+    #"#{type}/new.html"
     render(conn, "new.html", changeset: changeset)
   end
 

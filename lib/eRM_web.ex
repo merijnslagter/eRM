@@ -40,6 +40,7 @@ defmodule ERMWeb do
       import ERMWeb.Router.Helpers
       import ERMWeb.ErrorHelpers
       import ERMWeb.Gettext
+      import ERMWeb.ViewHelpers
     end
   end
 

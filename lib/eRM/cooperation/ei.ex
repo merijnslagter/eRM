@@ -13,6 +13,10 @@ defmodule ERM.Cooperation.EI do
     field :type, :string
     field :geom, Geo.PostGIS.Geometry
 
+    embeds_one :farmer_content, ERM.Cooperation.FarmerContent, on_replace: :delete
+    embeds_one :project_content, ERM.Cooperation.ProjectContent, on_replace: :delete
+    embeds_one :measurement_content, ERM.Cooperation.MeasurementContent, on_replace: :delete
+
     timestamps()
   end
 
@@ -21,5 +25,22 @@ defmodule ERM.Cooperation.EI do
     ei
     |> cast(attrs, [:type, :date, :hash, :description, :geom])
     |> validate_required([:type, :date, :description])
+  end
+
+  defp cast_content(changeset) do
+    type = changeset.data.type
+    case type do
+      "FARMER" -> cast_content(changeset, :farmer_content)
+      "PROJECT" -> cast_content(changeset, :project_content)
+      "MEASUREMENT" -> cast_content(changeset, :measurement_content)
+      _ -> raise "not recognized type: #{type}"
+    end
+  end
+
+  defp cast_content(changeset, embed_name) do
+    ensured_content = get_field(changeset, embed_name, %{}) || %{}
+    changeset
+    |> put_embed(embed_name, ensured_content)
+    |> cast_embed(embed_name, required: true)
   end
 end

@@ -23,7 +23,7 @@ defmodule ERMWeb.Router do
   scope "/erm", ERMWeb, as: :erm do
     pipe_through [:browser, :authenticate_user]
 
-    get "/home", PageController, :index
+    get "/home", MapController, :index
     resources "/eis", EIController
     resources "/cooperators", CooperatorController
   end

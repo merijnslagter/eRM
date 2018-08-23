@@ -1,0 +1,44 @@
+<nav class="navbar is-fixed-top is-primary">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+    </span>
+      <span class="navbar-header-text">eRM</span>
+    </a>
+    <div class="navbar-burger burger" data-target="navMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <%=if logged_in?(@conn) do %> 
+    <div id="navMenu" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">
+          <span class="icon"><i class="fa fa-fire"></i></span>
+          FARM
+        </a>
+        <a class="navbar-item" href="#">
+          <span class="icon"><i class="fa fa-utensils"></i></span>
+          MEASUREMENT
+        </a>
+        <a class="navbar-item" href="<%= session_path(@conn, :delete)%>">
+          <span class="icon"><i class="fa fa-user-circle"></i></span>
+          LOGOUT
+        </a>
+      </div>
+    </div>
+
+  <% else %>
+  <div id="navMenu" class="navbar-menu">
+      <div class="navbar-end">
+        <%= form_for @conn, session_path(@conn, :delete), [method: :delete, as: :user, class: "navbar-item"], fn  -> %>
+        <div class="form-group">
+          <%= submit "logout" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+</nav>
