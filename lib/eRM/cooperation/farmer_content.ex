@@ -1,4 +1,4 @@
-defmodule ERM.Cooperation.FarmerContent do
+defmodule ERM.Cooperation.FarmContent do
   @moduledoc """
   Farmer Interaction custom content.
   """

@@ -14,6 +14,7 @@ defmodule ERM.Cooperation.EI do
     field :geom, Geo.PostGIS.Geometry
 
     embeds_one :farmer_content, ERM.Cooperation.FarmerContent, on_replace: :delete
+    embeds_one :farm_content, ERM.Cooperation.FarmContent, on_replace: :delete
     embeds_one :project_content, ERM.Cooperation.ProjectContent, on_replace: :delete
     embeds_one :measurement_content, ERM.Cooperation.MeasurementContent, on_replace: :delete
 
@@ -47,8 +48,23 @@ defmodule ERM.Cooperation.EI do
       _ -> raise "not recognized type: #{type}"
     end
   end
-  defp cast_content(changeset, name) do
+  defp cast_content(changeset, :farm_content = embed_name) do
+    #ensured_content = changeset.params. || %{}
+    #changeset
+    #|> put_embed(embed_name, ensured_content)
+    #|> cast_embed(embed_name, required: true)
+
     changeset
-    |> cast_embed(name, required: true)
+    |> cast_embed(embed_name, required: false)
+  end
+
+  defp cast_content(changeset, :measurement_content = embed_name) do
+    #ensured_content = changeset.params. || %{}
+    #changeset
+    #|> put_embed(embed_name, ensured_content)
+    #|> cast_embed(embed_name, required: true)
+
+    changeset
+    |> cast_embed(embed_name, required: true)
   end
 end

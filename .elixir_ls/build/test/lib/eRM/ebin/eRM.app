@@ -6,7 +6,7 @@
               {modules,['Elixir.ERM','Elixir.ERM.Application',
                         'Elixir.ERM.Contexts','Elixir.ERM.Cooperation',
                         'Elixir.ERM.Cooperation.EI',
-                        'Elixir.ERM.Cooperation.FarmerContent',
+                        'Elixir.ERM.Cooperation.FarmContent',
                         'Elixir.ERM.Cooperation.MeasurementContent',
                         'Elixir.ERM.Cooperation.ProjectContent',
                         'Elixir.ERM.Cooperators',
