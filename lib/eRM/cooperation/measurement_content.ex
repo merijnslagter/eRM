@@ -6,13 +6,11 @@ defmodule ERM.Cooperation.MeasurementContent do
   import Ecto.Changeset
 
   embedded_schema do
-    field :description, :string
-    field :period, :string
-    field :value, :string
-    field :date, :utc_datetime
+    field :ph, :string
+    field :biodiversity_index, :string
   end
 
-  @fields ~w(description period value date)a
+  @fields ~w(ph biodiversity_index)a
 
   def changeset(model, params \\ %{}) do
     model

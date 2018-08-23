@@ -58,7 +58,7 @@ defmodule ERM.Cooperation do
     now = DateTime.utc_now()
     geo = %Geo.Point{coordinates: {attrs["lat"], attrs["long"]}, srid: 4326}
     %EI{geom: geo, date: now}
-    |> EI.changeset(attrs)
+    |> EI.create_changeset(attrs)
     |> Repo.insert()
   end
 

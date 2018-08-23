@@ -24,23 +24,31 @@ defmodule ERM.Cooperation.EI do
   def changeset(ei, attrs) do
     ei
     |> cast(attrs, [:type, :date, :hash, :description, :geom])
-    |> validate_required([:type, :date, :description])
+    |> validate_required([:type, :description])
+  end
+
+  @doc false
+  def create_changeset(ei, attrs) do
+    IO.puts "create_changeset"
+    IO.inspect(attrs)
+      ei
+      |> cast(attrs, [:type, :date, :hash, :description, :geom])
+      |> validate_required([:type, :description])
+      |> cast_content()
   end
 
   defp cast_content(changeset) do
-    type = changeset.data.type
+    type = changeset.changes.type
     case type do
       "FARMER" -> cast_content(changeset, :farmer_content)
+      "FARM" -> cast_content(changeset, :farm_content)
       "PROJECT" -> cast_content(changeset, :project_content)
       "MEASUREMENT" -> cast_content(changeset, :measurement_content)
       _ -> raise "not recognized type: #{type}"
     end
   end
-
-  defp cast_content(changeset, embed_name) do
-    ensured_content = get_field(changeset, embed_name, %{}) || %{}
+  defp cast_content(changeset, name) do
     changeset
-    |> put_embed(embed_name, ensured_content)
-    |> cast_embed(embed_name, required: true)
+    |> cast_embed(name, required: true)
   end
 end
