@@ -1,0 +1,44 @@
+<h2>FARM</h2>
+
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <%= form_for @conn, erm_ei_path(@conn, :create), [method: :post, as: :ei], fn f -> %>
+            <%= hidden_input f, :type, class: "field", value: "FARM" %>
+          <div class="field is-horizontal">
+            <div class="field-body">
+              <div class="field is-medium">
+                <%= label f, :description, class: "label" %>
+                <%= text_input f, :description, class: "field" %>
+                <%= error_tag f, :description %>
+              </div>
+              <div class="field is-medium">
+                <%= label f, :lat, class: "control-label" %>
+                <%= text_input f, :lat, class: "form-control" %>
+                <%= error_tag f, :lat %>
+              </div>
+              <div class="field is-medium">
+                <%= label f, :long, class: "control-label" %>
+                <%= text_input f, :long, class: "form-control" %>
+                <%= error_tag f, :long %>
+              </div>
+
+              <!-- farm_content fields -->
+
+              <!-- end farm content fields -->
+              <div class="field is-medium">
+                <p class="control center">
+                  <%= submit("Create", class: "button is-success") %>
+                </p>
+              </div>
+            </div>
+          </div>
+          <% end %>
+            <!-- end form -->
+
+
+      </div>
+    </div>
+  </div>
+</section>

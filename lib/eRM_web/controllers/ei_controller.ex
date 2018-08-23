@@ -9,15 +9,17 @@ defmodule ERMWeb.EIController do
     render(conn, "index.html", e2s: e2s)
   end
 
-  def new(conn, params) do
+  def new(conn, %{"type" => type} = params) do
     IO.inspect(params)
-    changeset = Cooperation.change_e2(%EI{})
-    #"#{type}/new.html"
-    render(conn, "new.html", changeset: changeset)
+    type = String.downcase(type)
+    changeset = Cooperation.change_e2(%EI{type: type})
+    render(conn, "#{type}.html", changeset: changeset)
   end
 
-  def create(conn, %{"ei" => ei_params}) do
+  def create(conn, %{"ei" => ei_params} = params) do
+    IO.inspect params
     IO.inspect ei_params
+    IO.puts "create ei"
     case Cooperation.create_e2(ei_params) do
       {:ok, ei} ->
         conn
