@@ -9,19 +9,41 @@ defmodule ERMWeb.EIController do
     render(conn, "index.html", e2s: e2s)
   end
 
+  def new(conn, %{"type" => type, "ei_id" => ei_id, "relation" => relation} = params) do
+    IO.inspect(params)
+    IO.puts "new with relation"
+    #parse ei_id
+    # get ei_id and copy coordinates
+    # create relations [hush, relation_type, from_to]
+    type = String.downcase(type)
+    parent_e3 = ERM.Cooperation.get_e2!(ei_id)
+    IO.inspect parent_e3.geom
+    changeset = Cooperation.change_e2(%EI{geom: parent_e3.geom, type: type, relation: relation})
+    render(conn, "#{type}.html", changeset: changeset, relation: relation, parent_e3: parent_e3)
+  end
+
   def new(conn, %{"type" => type} = params) do
     IO.inspect(params)
     type = String.downcase(type)
     changeset = Cooperation.change_e2(%EI{type: type})
-    render(conn, "#{type}.html", changeset: changeset)
+    render(conn, "#{type}.html", changeset: changeset, relation: nil, parent_e3: nil)
   end
 
   def create(conn, %{"ei" => ei_params} = params) do
     IO.inspect params
+    #ei_params = Map.put(ei_params,"relation", nil)
     IO.inspect ei_params
     IO.puts "create ei"
+    # add create related
     case Cooperation.create_e2(ei_params) do
       {:ok, ei} ->
+        IO.puts "OK e3 created"
+        #broadcast! socket, "new_msg", %{body: body}
+        #ERMWeb.Endpoint.broadcast("map:lobby", "new_e3", %{payload: "test"})
+        #|> IO.inspect()
+        ERMWeb.Endpoint.broadcast "map:lobby",
+        "new_e3", %{payload: "test"}
+
         conn
         |> put_flash(:info, "EI created successfully.")
         |> redirect(to: erm_ei_path(conn, :show, ei))

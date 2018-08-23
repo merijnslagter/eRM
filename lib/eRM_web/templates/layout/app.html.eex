@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="has-navbar-fixed-top">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +7,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello ERM!</title>
+    <title>wij:land ERM with EcoNet</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
 
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/bulma.css") %>">
@@ -19,19 +20,62 @@
   </head>
 
   <body>
-    <%= render "navbar.html", assigns %>
-    <div class="container">
-      <header class="header">
-      </header>
+    <section class="hero is-success is-fullheight">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <header class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+         <a class="navbar-item" href="http://0.0.0.0:4000/erm/home">
+    </span>
+      <span class="navbar-header-text">eRM</span>
+    </a>
+          <span class="navbar-burger burger" data-target="navbarMenuHeroC">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroC" class="navbar-menu">
+          <div class="navbar-end">
+             <%= link "++ Farm", to: erm_ei_path(@conn, :new, %{type: "Farm"}), class: "navbar-item" %>
+            <a class="navbar-item">
+              Measurement
+            </a>
+            <span class="navbar-item">
+              <a class="button is-success">
+                <span class="icon">
+                  <i class="fas fa-power-off"></i>
+                </span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
 
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <%= render @view_module, @view_template, assigns %>
+  </div>
 
-      <main role="main">
-        <%= render @view_module, @view_template, assigns %>
-      </main>
-
-    </div> <!-- /container -->
+  <!-- Hero footer: will stick at the bottom -->
+  <div class="hero-foot">
+    <nav class="tabs is-boxed is-fullwidth">
+      <div class="container">
+        <ul>
+          <li class="is-active"><a>Overview</a></li>
+          <li><a>Modifiers</a></li>
+          <li><a>Grid</a></li>
+          <li><a>Elements</a></li>
+          <li><a>Components</a></li>
+          <li><a>Layout</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</section>
 
     <script>window.userToken = "<%= assigns[:user_token] %>";</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

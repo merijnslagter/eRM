@@ -13,11 +13,21 @@ defmodule ERMWeb.MapChannel do
 
   def handle_info(:do_init, socket) do
     IO.puts "do_init"
-    eis = ERM.Cooperation.list_e2s()
+    eis = ERM.Cooperation.list_farms()
+    IO.inspect eis
+    #eis = ERM.Cooperation.list_e2s()
     return = ERMWeb.EIView.render("index.json", %{eis: eis})
     # todo return rendered html
     push socket, "eis:list", return
     IO.inspect return
+    {:noreply, socket}
+  end
+
+  def handle_info(message, socket) do
+    IO.puts "message"
+
+    IO.inspect message
+    #eis = ERM.Cooperation.list_e2s()
     {:noreply, socket}
   end
 
@@ -26,10 +36,30 @@ defmodule ERMWeb.MapChannel do
     IO.puts "EID selected on map: #{inspect(ei_id)}"
     # get ei data and render
     #return = ERMWeb.EIView.render("info.json", %{ei_id: ei_id})
-    ei = %{ei_id: ei_id}
-    html = Phoenix.View.render_to_string(ERMWeb.MapView, "e3interaction.html", ei: ei)
+    #ei = %{ei_id: ei_id, relations: put_relation([], "has")}
+    ei = %{ei_id: ei_id, relation: "has"}
+    #get e3 from database e3i
+    relations = []
+    farm = ERM.Cooperation.get_e2!(ei_id)
+    relations = ERM.Cooperation.list_measurements_for_farm(farm)
+    # tod put_relation(relations, relation)
+    # get ei ++ relations and render
+    html = Phoenix.View.render_to_string(ERMWeb.MapView, "e3interaction.html", ei: ei, relations: relations)
     IO.inspect(html)
     push socket, "ei:selected", %{html: html}
     {:noreply, socket}
+  end
+
+  def handle_in(message, payload, socket) do
+    #broadcast! socket, "new_msg", %{body: body}
+    IO.puts "new_e3 #{inspect(payload)}message: #{inspect(message)}"
+    # get ei data and render
+    #return = ERMWeb.EIView.render("info.json", %{ei_id: ei_id})
+    #ei = %{ei_id: ei_id, relations: put_relation([], "has")}
+    {:noreply, socket}
+  end
+
+  defp put_relation(relations, relation) do
+    [relation | relations]
   end
 end

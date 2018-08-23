@@ -12,6 +12,7 @@ defmodule ERM.Cooperation.EI do
     field :signature, :string
     field :type, :string
     field :geom, Geo.PostGIS.Geometry
+    field :relation, :string, virtual: true
 
     embeds_one :farmer_content, ERM.Cooperation.FarmerContent, on_replace: :delete
     embeds_one :farm_content, ERM.Cooperation.FarmContent, on_replace: :delete

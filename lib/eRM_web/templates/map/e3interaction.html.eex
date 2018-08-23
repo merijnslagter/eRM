@@ -1,9 +1,44 @@
-<div style=”background-color: blue; color: white;”>
-  <h1><%= @ei.ei_id %></h1>
-</div>
+     <style>
+     .flex-container {
+        display: flex;
+       
+      }
 
-<div>
-<h3>Actions</h3>
-<a class="" href=<%= '/erm/eis/new?type=MEASUREMENT&ei_id=#{@ei.ei_id}' %>" >+ Measurement</a>
+     </style>
+     <%= if @ei.relation do %>
+           <div class="tile"> 
+            <span class="icon center">
+              <i class="fas fa-plus-circle fa-5x">
+              </i>
+              <a href=<%='/erm/eis/new?type=MEASUREMENT&ei_id=#{@ei.ei_id}&relation=#{@ei.relation}'%>>Measurement</a>
+            </span>
+          </div>
+        <% end %>
 
+<!-- show relations giving farm ?-->
+ <section class="flex-container">
+        <%= for measurement <- @relations do %>
+      <div class="container">
+        <div class="box">
+          <div class="tags has-addons">
+            <span class="tag is-dark">ph</span>
+            <span class="tag is-info"><%= measurement.type %></span>
+          </div>
+          <div class="tags has-addons">
+            <span class="tag is-dark">biodiversity</span>
+            <span class="tag is-info">0.5.0</span>
+          </div>
+        </div>
+
+        <%= measurement.id %>
+      </div>
+    <% end %>
+</section>
+
+<section class="section">
+	<div class="container">
+		<!-- ... -->
+	</div>
+</section>
+    
 </div>

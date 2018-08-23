@@ -1,12 +1,5 @@
-<div class="container">
-  <div class="columns context">
-    <div class="column is-7" style="min-height: 100px;">
+
+    <div class="container has-text-centered">
       <div id='live-div'></div>
-    </div>
-  </div>
-  <div class="columns map">
-    <div class="column">
       <div id="mapid"></div>
     </div>
-  </div>
-</div>

@@ -1,4 +1,14 @@
+<%= if @relation do %>
+ <h2><%= @parent_e3.type %> <%= @parent_e3.description %></h2>
+ <%= if @parent_e3.geom do %>
+    <p>Latitude: <%= get_parent_lat_lon(@parent_e3.geom) |> to_lat() %></p>
+    <p>Longitude: <%= get_parent_lat_lon(@parent_e3.geom) |> to_lon() %></p>
+ <% end %>
+ <h3><%= @relation %></h3>
+<% end %>
+
 <h2>MEASUREMENT</h2>
+
 
 <section class="section">
   <div class="container">
@@ -6,13 +16,37 @@
       <div class="column">
         <%= form_for @conn, erm_ei_path(@conn, :create), [method: :post, as: :ei], fn f -> %>
             <%= hidden_input f, :type, class: "field", value: "MEASUREMENT" %>
+            <%= if @parent_e3 do %>
+                <%= hidden_input f, :ei_id, class: "field", value: @parent_e3.id %>
+            <% end %>
+            <%= if @relation do %>
+              <%= hidden_input f, :relation, class: "field", value: @relation %>
+            <% end %>
           <div class="field is-horizontal">
+
             <div class="field-body">
               <div class="field is-medium">
                 <%= label f, :description, class: "label" %>
                 <%= text_input f, :description, class: "field" %>
                 <%= error_tag f, :description %>
               </div>
+              <%= if @relation do %>
+
+              <% end %>
+               <%= if @parent_e3 do %>
+                    <h3>New Geom</h3>
+                    <div class="field is-medium">
+                        <%= label f, :lat, class: "control-label" %>
+                        <%= text_input f, :lat, class: "form-control", value: get_parent_lat_lon(@parent_e3.geom) |> to_lat()  %>
+                        <%= error_tag f, :lat %>
+                    </div>
+                    <div class="field is-medium">
+                        <%= label f, :long, class: "control-label" %>
+                        <%= text_input f, :long, class: "form-control", value: get_parent_lat_lon(@parent_e3.geom) |> to_lon()  %>
+                        <%= error_tag f, :long %>
+                    </div>
+               <% else %>
+                            <h3>New Geom</h3>
               <div class="field is-medium">
                 <%= label f, :lat, class: "control-label" %>
                 <%= text_input f, :lat, class: "form-control" %>
@@ -23,6 +57,9 @@
                 <%= text_input f, :long, class: "form-control" %>
                 <%= error_tag f, :long %>
               </div>
+
+               
+               <% end %>
 
               <!-- farm_content fields -->
 

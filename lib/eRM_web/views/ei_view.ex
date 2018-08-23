@@ -22,4 +22,12 @@ defmodule ERMWeb.EIView do
     ei = ERM.Cooperation.get_e2!(ei_id)
     %{data: render_one(ei, ERMWeb.EIView, "ei.json")}
   end
+
+  def get_parent_lat_lon(%Geo.Point{coordinates: {lat, lon}}) do
+    {lat, lon}
+  end
+
+  def to_lat({lat, _lon}), do: lat
+  def to_lon({_lat, lon}), do: lon
+
 end
