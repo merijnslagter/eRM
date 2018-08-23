@@ -15,6 +15,7 @@ defmodule ERMWeb.MapChannel do
     IO.puts "do_init"
     eis = ERM.Cooperation.list_e2s()
     return = ERMWeb.EIView.render("index.json", %{eis: eis})
+    # todo return rendered html
     push socket, "eis:list", return
     IO.inspect return
     {:noreply, socket}
@@ -24,7 +25,7 @@ defmodule ERMWeb.MapChannel do
     #broadcast! socket, "new_msg", %{body: body}
     IO.puts "EID selected on map: #{inspect(ei_id)}"
     # get ei data and render
-    return = ERMWeb.EIView.render("info.json", %{ei_id: ei_id})
+    #return = ERMWeb.EIView.render("info.json", %{ei_id: ei_id})
     ei = %{ei_id: ei_id}
     html = Phoenix.View.render_to_string(ERMWeb.PageView, "e3interaction.html", ei: ei)
     IO.inspect(html)

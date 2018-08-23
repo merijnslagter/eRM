@@ -1,11 +1,19 @@
-<%= form_for @conn, session_path(@conn, :delete), [method: :delete, as: :user], fn _ -> %>
-  <div class="form-group">
-    <%= submit "logout" %>
+<div class="container">
+  <div class="columns context">
+    <div class="column is-7" style="min-height: 100px;">
+      <div id='live-div'></div>
+    </div>
+    <div class="column is-3">
+      <%= form_for @conn, session_path(@conn, :delete), [method: :delete, as: :user], fn _ -> %>
+        <div class="form-group">
+          <%= submit "logout" %>
+        </div>
+        <% end %>
+    </div>
   </div>
-<% end %>
-
-<h2>live-div</h2>
-<div id='live-div'></div>
-
-<div id="mapid"></div>
-   
+  <div class="columns map">
+    <div class="column">
+      <div id="mapid"></div>
+    </div>
+  </div>
+</div>

@@ -28,6 +28,7 @@ exports.config = {
     */
     stylesheets: {
       joinTo: {
+        'css/debug.css': 'css/debug.css',
         'css/app.css': 'css/app.scss',
         'css/bulma.css': 'css/bulma-customize.scss',
         'css/lost.css': 'css/lost.scss'
