@@ -20,23 +20,25 @@ img.footer-logo {
   height: 35px;
 }
 #mapid {
-    width: 800px;
+    //width: 800px;
     height: 400px;
+    //min-width: 100%;
+    //min-height: 100%;
 }
 
 // grid work area
 
 #action { grid-area: a; }
-#live-div .action { grid-area: c; }
+#live-div { grid-area: c; }
 #mapid { grid-area: e; }
 #messaging { grid-area: m; }
 
 .grid-work-area {
     display: grid;
     grid-template-areas:
-        "c c c c c"
-        "a e e e m"
-        "a e e e m";
+        "c e e e m"
+        "c e e e m"
+        "c e e e m";
 
     grid-row-gap: 1rem;
 }

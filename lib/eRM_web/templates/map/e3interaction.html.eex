@@ -1,36 +1,56 @@
      <style>
      .flex-container {
         display: flex;
+        overflow: scroll;
        
       }
+
+      .flex-item {
+        text-align: center;
+        min-height: 100px;
+      }
+
 
      </style>
 
      <%= if @ei.relation do %>
            <div class="action"> 
-            <span class="icon center">
-              <i class="fas fa-plus-circle fa-5x">
-              </i>
-              <a href=<%='/erm/eis/new?type=MEASUREMENT&ei_id=#{@ei.ei_id}&relation=#{@ei.relation}'%>> MEASUREMENT</a>
-            </span>
-          </div>
-        <% end %>
 
-<!-- show relations giving farm ?-->
- <section class="flex-container">
-        <%= for measurement <- @relations do %>
-      <div class="container">
-      <!-- start card -->
-
-      <div class="card">
+           <!-- action start -->
+           <div class="card">
   <header class="card-header">
     <p class="card-header-title">
-      <p><%= measurement.type %><br><%= measurement.id %></p>
+      <%= @farm.description %>
     </p>
     <a href="#" class="card-header-icon" aria-label="more options">
       <span class="icon">
         <i class="fas fa-angle-down" aria-hidden="true"></i>
       </span>
+    </a>
+  </header>
+  <div class="card-content">
+    <div class="content">
+     <!-- show relations giving farm ?-->
+ <section class="flex-container">
+        <%= for measurement <- @relations do %>
+      <div class="container">
+      <!-- start card -->
+
+      <div class="card flex-item-measurement">
+  <header class="card-header">
+    <p class="card-header-title">
+      <div class="box"> 
+        <div class="tags has-addons">
+      <span class="tag"><%= measurement.type %></span>
+      <span class="tag"><%= measurement.description %></span>
+</div>
+</div>
+    </p>
+    <a href="#" class="card-header-icon" aria-label="more options">
+      <span class="icon">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+      <%= measurement.id %>
     </a>
   </header>
   <div class="card-content">
@@ -61,5 +81,28 @@
       </div>
     <% end %>
 </section>
+    </div>
+  </div>
+  <footer class="card-footer">
+  <div class="box card-footer-item flex-item">
+    <span class="icon">
+              <i class="fas fa-plus-circle fa-5x">
+              </i>
+              <a href=<%='/erm/eis/new?type=MEASUREMENT&ei_id=#{@ei.ei_id}&relation=#{@ei.relation}'%>> MEASUREMENT</a>
+            </span>
+    </div>
+    <!--<a href="#" class="card-footer-item">Save</a>
+    <a href="#" class="card-footer-item">Edit</a>
+    <a href="#" class="card-footer-item">Delete</a> -->
+  </footer>
+</div>
+
+           <!-- action end -->
+
+            
+          </div>
+        <% end %>
+
+
 
 

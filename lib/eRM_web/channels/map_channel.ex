@@ -44,7 +44,7 @@ defmodule ERMWeb.MapChannel do
     relations = ERM.Cooperation.list_measurements_for_farm(farm)
     # tod put_relation(relations, relation)
     # get ei ++ relations and render
-    html = Phoenix.View.render_to_string(ERMWeb.MapView, "e3interaction.html", ei: ei, relations: relations)
+    html = Phoenix.View.render_to_string(ERMWeb.MapView, "e3interaction.html", ei: ei, relations: relations, farm: farm)
     IO.inspect(html)
     push socket, "ei:selected", %{html: html}
     {:noreply, socket}

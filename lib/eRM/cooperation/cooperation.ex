@@ -29,7 +29,8 @@ defmodule ERM.Cooperation do
 
   def list_measurements_for_farm(farm) do
     EI
-    |> where([f], f.geom == ^farm.geom)
+    |> where([f], f.geom == ^farm.geom and f.type == "MEASUREMENT")
+    |> order_by([f], desc: f.id)
     |> Repo.all()
   end
 
