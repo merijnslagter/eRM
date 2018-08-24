@@ -1,6 +1,10 @@
-<div class="grid-work-area">
-    <div class="container has-text-centered">
-      <div id='live-div'></div>
-      <div id="mapid"></div>
+ <section class="section">
+    <div class="container">
+      <div class="grid-work-area">
+        <div class="container has-text-centered">
+          <div id='live-div'></div>
+          <div id="mapid"></div>
+        </div>
+      </div>
     </div>
-</div>
+  </section>

@@ -1,19 +1,30 @@
-<%= if @relation do %>
- <h2><%= @parent_e3.type %> <%= @parent_e3.description %></h2>
- <%= if @parent_e3.geom do %>
+
+<div class="card">
+  <header class="card-header">
+  <div class="container">
+    <%= if @relation do %>
+        <span class="card-header-title">
+            <%=@parent_e3.type %> <%= @parent_e3.description %>
+        </span>
+
+ <span><%= if @parent_e3.geom do %>
     <p>Latitude: <%= get_parent_lat_lon(@parent_e3.geom) |> to_lat() %></p>
     <p>Longitude: <%= get_parent_lat_lon(@parent_e3.geom) |> to_lon() %></p>
  <% end %>
- <h3><%= @relation %></h3>
+ <h3><%= @relation %></h3></span>
 <% end %>
 
-<h2>MEASUREMENT</h2>
-
-
-<section class="section">
+<span><h2>MEASUREMENT</h2></span>
+</div>
+  </header>
+  <div class="card-content">
+    <div class="content">
+     <section class="section">
   <div class="container">
     <div class="columns">
-      <div class="column">
+      <div class="column center">
+      <div class="box">
+
         <%= form_for @conn, erm_ei_path(@conn, :create), [method: :post, as: :ei], fn f -> %>
             <%= hidden_input f, :type, class: "field", value: "MEASUREMENT" %>
             <%= if @parent_e3 do %>
@@ -76,18 +87,24 @@
               
 
               <!-- end farm content fields -->
-              <div class="field is-medium">
-                <p class="control center">
-                  <%= submit("Create", class: "button is-success") %>
-                </p>
-              </div>
+               <footer class="card-footer">
+    <%= submit("Create", class: "button is-success") %>
+    <!--<a href="#" class="card-footer-item">Edit</a>
+    <a href="#" class="card-footer-item">Delete</a>-->
+  </footer>
+
             </div>
           </div>
           <% end %>
             <!-- end form -->
 
-
+        </div> <!-- end box -->
       </div>
     </div>
   </div>
 </section>
+    </div>
+  </div>
+</div>
+
+
