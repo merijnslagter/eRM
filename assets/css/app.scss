@@ -24,13 +24,12 @@ img.footer-logo {
     height: 500px;
 }
 
-
 // grid work area
 
-#a { grid-area: a; }
-#c { grid-area: c; }
+#action { grid-area: a; }
+#live-div { grid-area: c; }
 #mapid { grid-area: e; }
-#m { grid-area: m; }
+#messaging { grid-area: m; }
 
 .grid-work-area {
     display: grid;
@@ -50,8 +49,11 @@ img.footer-logo {
             "e e e";
     };
 
-    #map-id {
-      width: 100px; 
+    #map-id { 
+      width: 300px; 
       height: 500px;
     }
+// map-id resize doesn't work
+
+
 }

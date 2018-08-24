@@ -4,6 +4,8 @@
         <div class="container has-text-centered">
           <div id='live-div'></div>
           <div id="mapid"></div>
+          <div id="action"></div>
+          <div id="messaging"></div>
         </div>
       </div>
     </div>
