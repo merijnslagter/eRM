@@ -1,43 +1,60 @@
-<h2>Show E2</h2>
+<style>
+  li {list-style-type: none;}
+</style>
 
-<ul>
+<div class="container has-text-centered">
+  <div class="card">
+    <header class="card-header">
+      <p class="card-header-title">
+        <%= @e2.description %>
+      </p>
+      <a href="#" class="card-header-icon" aria-label="more options">
+        <span class="icon">
+          <i class="fas fa-angle-down" aria-hidden="true"></i>
+        </span>
+      </a>
+    </header>
+    <div class="card-content">
+      <div class="content">
+      <ul>
 
-  <li>
-    <strong>Type:</strong>
-    <%= @e2.type %>
-  </li>
+    <li>
+      <strong>Type:</strong>
+      <%= @e2.type %>
+    </li>
 
-  <li>
-    <strong>Creator:</strong>
-    <%= @e2.creator %>
-  </li>
+    <li>
+      <strong>Creator:</strong>
+      <%= @e2.creator %>
+    </li>
 
-  <li>
-    <strong>Date:</strong>
-    <%= @e2.date %>
-  </li>
+    <li>
+      <strong>Date:</strong>
+      <time datetime="#{<%= @e2.date %>}"><%= @e2.date %></time>
+    </li>
 
-  <li>
-    <strong>Hash:</strong>
-    <%= @e2.hash %>
-  </li>
+    <li>
+      <strong>Hash:</strong>
+      <%= @e2.hash %>
+    </li>
 
-  <li>
-    <strong>Signature:</strong>
-    <%= @e2.signature %>
-  </li>
+    <li>
+      <strong>Signature:</strong>
+      <%= @e2.signature %>
+    </li>
 
-  <li>
-    <strong>Eid:</strong>
-    <%= @e2.eid %>
-  </li>
+    <li>
+      <strong>Eid:</strong>
+      <%= @e2.eid %>
+    </li>
 
-  <li>
-    <strong>Description:</strong>
-    <%= @e2.description %>
-  </li>
+  </ul>
+      </div>
+    </div>
+    <footer class="card-footer">
+      <span><%= link "Edit", to: erm_ei_path(@conn, :edit, @e2), class: "card-footer-item" %></span>
+      <span><%= link "Back", to: erm_ei_path(@conn, :index), class: "card-footer-item" %></span>
+    </footer>
+  </div>
+</div>
 
-</ul>
-
-<span><%= link "Edit", to: erm_ei_path(@conn, :edit, @e2) %></span>
-<span><%= link "Back", to: erm_ei_path(@conn, :index) %></span>

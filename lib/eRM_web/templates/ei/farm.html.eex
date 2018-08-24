@@ -1,10 +1,21 @@
-<h2>FARM</h2>
-
-<section class="section">
+<div class="card">
+    <%= form_for @conn, erm_ei_path(@conn, :create), [method: :post, as: :ei], fn f -> %>
+  <header class="card-header">
+    <p class="card-header-title">
+      New Farm
+    </p>
+    <a href="#" class="card-header-icon" aria-label="more options">
+      <span class="icon">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </a>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <section class="section">
   <div class="container">
     <div class="columns">
       <div class="column">
-        <%= form_for @conn, erm_ei_path(@conn, :create), [method: :post, as: :ei], fn f -> %>
             <%= hidden_input f, :type, class: "field", value: "FARM" %>
           <div class="field is-horizontal">
             <div class="field-body">
@@ -25,7 +36,7 @@
               </div>
 
               <!-- farm_content fields -->
-              
+
 
               <!-- end farm content fields -->
               <div class="field is-medium">
@@ -35,7 +46,7 @@
               </div>
             </div>
           </div>
-          <% end %>
+        
             <!-- end form -->
 
 
@@ -43,3 +54,14 @@
     </div>
   </div>
 </section>
+    </div>
+  </div>
+  <footer class="card-footer">
+    <span class="card-footer-item"><%= link "Back", to: erm_ei_path(@conn, :index) %></span>
+     <!-- <%= submit("Create", class: "button is-success") %>
+    <a href="#" class="card-footer-item">Edit</a>
+    <a href="#" class="card-footer-item">Delete</a> -->
+  </footer>
+    <% end %>
+</div>
+

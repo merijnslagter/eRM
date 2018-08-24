@@ -1,5 +1,2 @@
-<h2>Edit EI</h2>
-
+<!-- TODO add edit form depending on e3 type and show correct content -->
 <%= render "form.html", Map.put(assigns, :action, erm_ei_path(@conn, :update, @e2)) %>
-
-<span><%= link "Back", to: erm_ei_path(@conn, :index) %></span>
