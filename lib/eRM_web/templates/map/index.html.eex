@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  <section class="section">
     <div class="container">
       <div class="grid-work-area">
@@ -8,3 +9,25 @@
       </div>
     </div>
   </section>
+=======
+<div class="grid-work-area">
+      <div id="a" class="center-column">
+			<p class="has-text-centered has-text-white">
+				​The quickest car in the world, with record-setting<br>
+				acceleration, range and performance.
+			</p>
+		</div>
+      <div id='c'>
+        <div id='live-div'></div>
+      </div>
+      <div id = 'e'>
+        <div id="mapid"></div>
+      </div>
+      <div id="m" class="center-column">
+			<p class="has-text-centered has-text-white">
+				​The quickest car in the world, with record-setting<br>
+				acceleration, range and performance.
+			</p>
+		</div>
+</div>
+>>>>>>> add grid

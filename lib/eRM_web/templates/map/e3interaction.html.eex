@@ -6,7 +6,7 @@
 
      </style>
 
-     <div class="grid-work-area">
+      <div class="grid-work-area">
      <%= if @ei.relation do %>
            <div class="tile"> 
             <span class="icon center">

@@ -26,7 +26,7 @@ if (mapContainer) {
         accessToken: 'pk.eyJ1IjoidGllcnJhbGlicmUiLCJhIjoiY2preHo4bDM0MGN2djN2cjBzOHN3bTR1bCJ9.TunGBy7jq9N_X6hFM7WRcQ'
     }).addTo(map);
 
-    map.setView([52.2789, 4.9378], 10);
+    map.setView([52.2789, 4.9378], 9);
 
     let channel = socket.channel("map:lobby", {})
     channel.join()

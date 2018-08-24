@@ -20,32 +20,38 @@ img.footer-logo {
   height: 35px;
 }
 #mapid {
-    width: 1000px;
-    height: 1000px;
+    width: 500px;
+    height: 500px;
 }
+
 
 // grid work area
 
 #a { grid-area: a; }
-#b { grid-area: b; }
 #c { grid-area: c; }
-#d { grid-area: d; }
 #e { grid-area: e; }
+#m { grid-area: m; }
 
 .grid-work-area {
     display: grid;
     grid-template-areas:
-        "a a a a"
-        "b c d e";
+        "c c c c c"
+        "a e e e m"
+        "a e e e m";
 
     grid-row-gap: 1rem;
 }
 
-@media (max-width: 512px) {
-    #grid {
+@media (max-width: 700px) {
+    .grid-work-area {
         grid-template-areas:
-            "a a a"
-            "b c d"
+            "c c c"
+            "e e e"
             "e e e";
+    };
+
+    #map-id {
+      width: 100px; 
+      height: 500px;
     }
 }
