@@ -20,14 +20,14 @@ img.footer-logo {
   height: 35px;
 }
 #mapid {
-    width: 500px;
-    height: 500px;
+    width: 800px;
+    height: 400px;
 }
 
 // grid work area
 
 #action { grid-area: a; }
-#live-div { grid-area: c; }
+#live-div .action { grid-area: c; }
 #mapid { grid-area: e; }
 #messaging { grid-area: m; }
 
@@ -39,21 +39,4 @@ img.footer-logo {
         "a e e e m";
 
     grid-row-gap: 1rem;
-}
-
-@media (max-width: 700px) {
-    .grid-work-area {
-        grid-template-areas:
-            "c c c"
-            "e e e"
-            "e e e";
-    };
-
-    #map-id { 
-      width: 300px; 
-      height: 500px;
-    }
-// map-id resize doesn't work
-
-
 }

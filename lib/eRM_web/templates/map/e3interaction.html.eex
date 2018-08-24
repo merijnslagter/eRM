@@ -6,13 +6,12 @@
 
      </style>
 
-      <div class="grid-work-area">
      <%= if @ei.relation do %>
-           <div class="tile"> 
+           <div class="action"> 
             <span class="icon center">
               <i class="fas fa-plus-circle fa-5x">
               </i>
-              <a href=<%='/erm/eis/new?type=MEASUREMENT&ei_id=#{@ei.ei_id}&relation=#{@ei.relation}'%>>Measurement</a>
+              <a href=<%='/erm/eis/new?type=MEASUREMENT&ei_id=#{@ei.ei_id}&relation=#{@ei.relation}'%>> MEASUREMENT</a>
             </span>
           </div>
         <% end %>
@@ -37,4 +36,4 @@
     <% end %>
 </section>
 
-</div>
+
