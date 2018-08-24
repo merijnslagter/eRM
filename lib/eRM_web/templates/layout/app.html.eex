@@ -38,9 +38,7 @@
         <div id="navbarMenuHeroC" class="navbar-menu">
           <div class="navbar-end">
              <%= link "++ Farm", to: erm_ei_path(@conn, :new, %{type: "Farm"}), class: "navbar-item" %>
-            <a class="navbar-item">
-              Measurement
-            </a>
+               <%= link "++ MEASUREMENT", to: erm_ei_path(@conn, :new, %{type: "MEASUREMENT"}), class: "navbar-item" %>
             <span class="navbar-item">
               <a class="button is-success">
                 <span class="icon">

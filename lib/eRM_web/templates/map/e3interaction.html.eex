@@ -20,18 +20,44 @@
  <section class="flex-container">
         <%= for measurement <- @relations do %>
       <div class="container">
-        <div class="box">
-          <div class="tags has-addons">
+      <!-- start card -->
+
+      <div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      <p><%= measurement.type %><br><%= measurement.id %></p>
+    </p>
+    <a href="#" class="card-header-icon" aria-label="more options">
+      <span class="icon">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </a>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <p><time datetime="<%= measurement.date %>"><%= measurement.date %></time></p>
+      <%= if (measurement.type == "MEASUREMENT") do %>
+        <div class="tags has-addons">
             <span class="tag is-dark">ph</span>
-            <span class="tag is-info"><%= measurement.type %></span>
-          </div>
-          <div class="tags has-addons">
-            <span class="tag is-dark">biodiversity</span>
-            <span class="tag is-info">0.5.0</span>
-          </div>
+            <span class="tag is-info"><%= measurement.measurement_content.ph %></span>
         </div>
 
-        <%= measurement.id %>
+        <div class="tags has-addons">
+            <span class="tag is-dark">biodiversity</span>
+            <span class="tag is-info"><%= measurement.measurement_content.biodiversity_index %></span>
+          </div>
+      <% end %>
+    </div>
+  </div>
+  <!--<footer class="card-footer">
+    <a href="#" class="card-footer-item">Save</a>
+    <a href="#" class="card-footer-item">Edit</a>
+    <a href="#" class="card-footer-item">Delete</a>
+  </footer> -->
+</div>
+
+      <!-- end card !--> 
+
       </div>
     <% end %>
 </section>
