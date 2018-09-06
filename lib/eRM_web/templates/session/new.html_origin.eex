@@ -1,0 +1,69 @@
+<style>
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+
+<div class="columns is-center is-mobile">
+<div class="column" style="max-height: 70px;">
+      <figure class="image">
+        <img src="/images/logowijland.png" style="max-width: 150px;">
+      </figure>
+  </div>
+
+
+
+<div class = "box " >
+    <div class="column">
+      <div class="column">
+        <%= form_for @conn, session_path(@conn, :create), [method: :post, as: :user], fn f -> %>
+          <div class="field is-horizontal">
+            <div class="field-body">
+              <div class="field is-medium">
+                <p class="control has-icons-left has-icons-right">
+                  <%= text_input f, :email, placeholder: "Email", class: "input" %>
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-envelope"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                      <i class="fas fa-check"></i>
+                    </span>
+                </p>
+              </div>
+              <div class="field is-medium">
+                <p class="control has-icons-left">
+                  <%= password_input f, :password, placeholder: "Password", class: "input" %>
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-lock"></i>
+                    </span>
+                </p>
+              </div>
+              <div class="field is-medium">
+                <p class="control center">
+                  <%= submit("Login", class: "button is-success") %>
+                </p>
+              </div>
+            </div>
+          </div>
+          <% end %>
+            <!-- end form -->
+
+
+      </div>
+    </div>
+  
+
+</div>
+
+
+<div class="column" style="max-height: 70px;">
+      <div class = "column" >
+        <p>with</p>
+      </div>
+      <figure class="image center">
+        <img src="/images/econet-logo.png" style="max-width: 100px;">
+      </figure>
+    </div>
+</div>

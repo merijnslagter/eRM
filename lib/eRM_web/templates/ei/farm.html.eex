@@ -2,7 +2,7 @@
     <%= form_for @conn, erm_ei_path(@conn, :create), [method: :post, as: :ei], fn f -> %>
   <header class="card-header">
     <p class="card-header-title">
-      New Farm
+      Nieuwe Boer
     </p>
     <a href="#" class="card-header-icon" aria-label="more options">
       <span class="icon">
@@ -16,22 +16,27 @@
   <div class="container">
     <div class="columns">
       <div class="column">
-            <%= hidden_input f, :type, class: "field", value: "FARM" %>
+            <%= hidden_input f, :type, class: "field", value: "BOERDERIJ" %>
           <div class="field is-horizontal">
             <div class="field-body">
               <div class="field is-medium">
-                <%= label f, :description, class: "label" %>
-                <%= text_input f, :description, class: "field" %>
-                <%= error_tag f, :description %>
+                <%= label f, :boer, class: "label" %>
+                <%= text_input f, :boer, class: "field" %>
+                <%= error_tag f, :boer %>
               </div>
               <div class="field is-medium">
-                <%= label f, :lat, class: "control-label" %>
-                <%= text_input f, :lat, class: "form-control" %>
+                <%= label f, :mobiel, class: "label" %>
+                <%= text_input f, :mobiel, class: "field" %>
+                <%= error_tag f, :mobiel %>
+              </div>
+              <div class="field is-medium">
+                <%= label f, :lat, class: "label" %>
+                <%= text_input f, :lat, class: "field" %>
                 <%= error_tag f, :lat %>
               </div>
               <div class="field is-medium">
-                <%= label f, :long, class: "control-label" %>
-                <%= text_input f, :long, class: "form-control" %>
+                <%= label f, :long, class: "label" %>
+                <%= text_input f, :long, class: "field" %>
                 <%= error_tag f, :long %>
               </div>
 

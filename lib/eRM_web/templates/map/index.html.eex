@@ -1,12 +1,16 @@
-
-    <div class="container">
-      <div class="grid-work-area">
-        <div class="container has-text-centered">
+<main class="hero center" style="padding: 2rem;">
+      <div id="grid-work-area">
+          <div id="mapid"class="center-column"></div>
+          <div id="action"class="center-column">
+            <p class="title has-text-white"><span class="is-size-5"></span>Measurements<span class="is-size-5"></span></p>
+			<p class="subtitle is-7 has-text-white">Klik hier om meting door te voeren</p>
+            
+          </div>
           <div id='live-div'></div>
-          <div id="mapid"></div>
-          <div id="action"></div>
-          <div id="messaging"></div>
-        </div>
-      </div>
-    </div>
+          <div id="messaging">
+          <p class="title has-text-white"><span class="is-size-5"></span>Berichten<span class="is-size-5"></span></p>
+          </div>
 
+
+      </div>
+</main>

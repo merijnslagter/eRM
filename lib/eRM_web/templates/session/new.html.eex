@@ -1,70 +1,110 @@
 <style>
-  .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 </style>
 
-<section class="hero has-background-white" style="max-height: 70px;">
-  <div class="hero-body">
-    <div class="container">
-      <figure class="image">
-        <img src="/images/logowijland.png" style="max-width: 150px;">
-      </figure>
-    </div>
-  </div>
-</section>
+<!--- <body>
+    <section class="hero is-success is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="column is-4 is-offset-4">
+                    <h3 class="title has-text-grey">Login</h3>
+                    <p class="subtitle has-text-grey">Please login to proceed.</p>
+                    <div class="box">
+                        <figure class="avatar">
+                            <img src="/images/logowijland.png">
+                        </figure>
+                        <form>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="email" placeholder="Your Email" autofocus="">
+                                </div>
+                            </div>
 
-<section class="section">
-  <div class="container">
-    <div class="columns">
-      <div class="column">
-        <%= form_for @conn, session_path(@conn, :create), [method: :post, as: :user], fn f -> %>
-          <div class="field is-horizontal">
-            <div class="field-body">
-              <div class="field is-medium">
-                <p class="control has-icons-left has-icons-right">
-                  <%= text_input f, :email, placeholder: "Email", class: "input" %>
-                    <span class="icon is-small is-left">
-                      <i class="fas fa-envelope"></i>
-                    </span>
-                    <span class="icon is-small is-right">
-                      <i class="fas fa-check"></i>
-                    </span>
-                </p>
-              </div>
-              <div class="field is-medium">
-                <p class="control has-icons-left">
-                  <%= password_input f, :password, placeholder: "Password", class: "input" %>
-                    <span class="icon is-small is-left">
-                      <i class="fas fa-lock"></i>
-                    </span>
-                </p>
-              </div>
-              <div class="field is-medium">
-                <p class="control center">
-                  <%= submit("Login", class: "button is-success") %>
-                </p>
-              </div>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="password" placeholder="Your Password">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="checkbox">
+                  <input type="checkbox">
+                  Remember me
+                </label>
+                            </div>
+                            <button class="button is-block is-info is-large is-fullwidth">Login</button>
+                        </form>
+                    </div>
+                    <p class="has-text-grey">
+                        <a href="../">Sign Up</a> &nbsp;·&nbsp;
+                        <a href="../">Forgot Password</a> &nbsp;·&nbsp;
+                        <a href="../">Need Help?</a>
+                    </p>
+                </div>
             </div>
-          </div>
-          <% end %>
-            <!-- end form -->
+        </div>
+    </section>
+    <script async type="text/javascript" src="../js/bulma.js"></script>
+</body>
+
+--->
+
+<body>
+    <section class="hero is-success is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="column is-4 is-offset-4">
+                    <h3 class="title has-text-grey">Login</h3>
+                    <p class="subtitle has-text-grey">Please login to proceed.</p>
+                    <div class="box" style="min-width: 300px;">
+                        <figure class="avatar">
+                            <img src="/images/logowijland.png">
+                        </figure>
 
 
-      </div>
-    </div>
-  </div>
-</section>
+                        <%= form_for @conn, session_path(@conn, :create), [method: :post, as: :user], fn f -> %>
 
-<section class="hero has-background-white" style="max-height: 50px;">
-  <div class="hero-body">
-    <div class="container center">
-      <p>with</p>
-      <figure class="image center">
-        <img src="/images/econet-logo.png" style="max-width: 100px;">
-      </figure>
-    </div>
-  </div>
-</section>
+
+                            <div class="field">
+                                <p class="control has-icons-left has-icons-right">
+                                    <%= text_input f, :email, placeholder: "Email", class: "input" %>
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-envelope"></i>
+                                        </span>
+                                        <span class="icon is-small is-right">
+                                            <i class="fas fa-check"></i>
+                                        </span>
+                                </p>
+                            </div>
+                            <div class="field is-medium">
+                                <p class="control has-icons-left">
+                                    <%= password_input f, :password, placeholder: "Password", class: "input" %>
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-lock"></i>
+                                        </span>
+                                </p>
+                            </div>
+                            <div class="field is-medium">
+                                <p class="control center">
+                                    <%= submit("Login", class: "button is-success") %>
+                                </p>
+                            </div>
+
+
+                            <% end %>
+                                <!-- end form -->
+
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+
+    </section>
+</body>

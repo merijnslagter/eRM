@@ -25,7 +25,7 @@
       <div class="box">
 
         <%= form_for @conn, erm_ei_path(@conn, :create), [method: :post, as: :ei], fn f -> %>
-            <%= hidden_input f, :type, class: "field", value: "MEASUREMENT" %>
+            <%= hidden_input f, :type, class: "field", value: "Measurement" %>
             <%= if @parent_e3 do %>
                 <%= hidden_input f, :ei_id, class: "field", value: @parent_e3.id %>
             <% end %>

@@ -1,0 +1,12 @@
+
+    <div class="container">
+      <div class="grid-work-area">
+        <div class="container has-text-centered">
+          <div id="mapid"></div>
+          <div id='live-div'></div>
+          <div id="action"></div>
+          <div id="messaging"></div>
+        </div>
+      </div>
+    </div>
+

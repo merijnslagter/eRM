@@ -1,108 +1,102 @@
-     <style>
-     .flex-container {
-        display: flex;
-        overflow: scroll;
-       
-      }
+<style>
+  .flex-container {
+    display: flex;
+    overflow: scroll;
 
-      .flex-item {
-        text-align: center;
-        min-height: 100px;
-      }
+  }
 
+  .flex-item {
+    text-align: center;
+    min-height: 100px;
+  }
+</style>
 
-     </style>
+<%= if @ei.relation do %>
+  <div class="action">
 
-     <%= if @ei.relation do %>
-           <div class="action"> 
+    <!-- action start -->
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <%= @farm.description %>
+        </p>
+        <a href="#" class="card-header-icon" aria-label="more options">
+          <span class="icon">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+        </a>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          <!-- show relations giving farm ?-->
+          <section class="flex-container">
+            <%= for measurement <- @relations do %>
+              <div class="container">
+                <!-- start card -->
+                <div class="card flex-item-measurement">
+                  <header class="card-header">
+                    <p class="card-header-title">
+                      <div class="box">
+                        <div class="tags has-addons">
+                          <span class="tag"><%= measurement.type %></span>
+                          <span class="tag"><%= measurement.description %></span>
+                        </div>
+                      </div>
+                    </p>
+                    <a href="#" class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                      <%= measurement.id %>
+                    </a>
+                  </header>
+                  <div class="card-content">
+                    <div class="content">
+                      <p><time datetime="<%= measurement.date %>"><%= measurement.date %></time></p>
+                      <%= if (measurement.type == "MEASUREMENT") do %>
+                        <div class="tags has-addons">
+                          <span class="tag is-dark">ph</span>
+                          <span class="tag is-info"><%= measurement.measurement_content.ph %></span>
+                        </div>
 
-           <!-- action start -->
-           <div class="card">
-  <header class="card-header">
-    <p class="card-header-title">
-      <%= @farm.description %>
-    </p>
-    <a href="#" class="card-header-icon" aria-label="more options">
-      <span class="icon">
-        <i class="fas fa-angle-down" aria-hidden="true"></i>
-      </span>
-    </a>
-  </header>
-  <div class="card-content">
-    <div class="content">
-     <!-- show relations giving farm ?-->
- <section class="flex-container">
-        <%= for measurement <- @relations do %>
-      <div class="container">
-      <!-- start card -->
-
-      <div class="card flex-item-measurement">
-  <header class="card-header">
-    <p class="card-header-title">
-      <div class="box"> 
-        <div class="tags has-addons">
-      <span class="tag"><%= measurement.type %></span>
-      <span class="tag"><%= measurement.description %></span>
-</div>
-</div>
-    </p>
-    <a href="#" class="card-header-icon" aria-label="more options">
-      <span class="icon">
-        <i class="fas fa-angle-down" aria-hidden="true"></i>
-      </span>
-      <%= measurement.id %>
-    </a>
-  </header>
-  <div class="card-content">
-    <div class="content">
-      <p><time datetime="<%= measurement.date %>"><%= measurement.date %></time></p>
-      <%= if (measurement.type == "MEASUREMENT") do %>
-        <div class="tags has-addons">
-            <span class="tag is-dark">ph</span>
-            <span class="tag is-info"><%= measurement.measurement_content.ph %></span>
-        </div>
-
-        <div class="tags has-addons">
-            <span class="tag is-dark">biodiversity</span>
-            <span class="tag is-info"><%= measurement.measurement_content.biodiversity_index %></span>
-          </div>
-      <% end %>
-    </div>
-  </div>
-  <!--<footer class="card-footer">
+                        <div class="tags has-addons">
+                          <span class="tag is-dark">biodiversity</span>
+                          <span class="tag is-info"><%= measurement.measurement_content.biodiversity_index %></span>
+                        </div>
+                        <% end %>
+                    </div>
+                  </div>
+                  <!--<footer class="card-footer">
     <a href="#" class="card-footer-item">Save</a>
     <a href="#" class="card-footer-item">Edit</a>
     <a href="#" class="card-footer-item">Delete</a>
   </footer> -->
-</div>
+                </div>
 
-      <!-- end card !--> 
+                <!-- end card !-->
 
+              </div>
+              <% end %>
+          </section>
+        </div>
       </div>
-    <% end %>
-</section>
-    </div>
-  </div>
-  <footer class="card-footer">
-  <div class="box card-footer-item flex-item">
-    <span class="icon">
-              <i class="fas fa-plus-circle fa-5x">
-              </i>
-              <a href=<%='/erm/eis/new?type=MEASUREMENT&ei_id=#{@ei.ei_id}&relation=#{@ei.relation}'%>> MEASUREMENT</a>
-            </span>
-    </div>
-    <!--<a href="#" class="card-footer-item">Save</a>
+      
+      <footer class="card-footer">
+        <div class="box card-footer-item flex-item">
+          <span class="icon">
+            <i class="fas fa-plus-circle fa-5x">
+            </i>
+            <a href=<%='/erm/eis/new?type=MEASUREMENT&ei_id=#{@ei.ei_id}&relation=#{@ei.relation}' %>> MEASUREMENT</a>
+          </span>
+        </div>
+        <!--<a href="#" class="card-footer-item">Save</a>
     <a href="#" class="card-footer-item">Edit</a>
     <a href="#" class="card-footer-item">Delete</a> -->
-  </footer>
-</div>
+      </footer>
+    </div>
 
-           <!-- action end -->
-
-            
-          </div>
-        <% end %>
+    <!-- action end -->
 
 
-
-
+  </div>
+  <% end %>

@@ -14,6 +14,20 @@
   <%=if logged_in?(@conn) do %> 
     <div id="navMenu" class="navbar-menu">
       <div class="navbar-end">
+
+            <span class="navbar-item">
+              <a class="button is-success">
+                <span class="icon">
+                  <%= link to: erm_ei_path(@conn, :new, %{type: "Farm"}) do %>
+                      <i class= 
+                        <figure class="image">
+                         <img src="/images/icon_farmer.png" style="max-width: 150px; aria-hidden='true'>;">
+                       </figure> </i>
+                    <% end %>
+                </span>
+              </a>
+            </span>
+
           <%= link "FARM", to: erm_ei_path(@conn, :new, %{type: "FARM"}), class: "navbar-item" %>
         <%= link "MEASUREMENT", to: erm_ei_path(@conn, :new, %{type: "MEASUREMENT"}), class: "navbar-item" %>
       </div>
